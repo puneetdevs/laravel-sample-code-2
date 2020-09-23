@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Http\Requests\Api\ChatGroup;
+
+use Dingo\Api\Http\FormRequest;
+
+class Update extends FormRequest 
+{
+
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize() 
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules() 
+    {
+        return [
+			'group_uuid' => 'nullable|max:255',
+			'event_id' => 'required|numeric',
+			'created_by' => 'nullable|numeric',
+			'group_name' => 'nullable|max:255',
+			'type' => 'required|numeric',
+        ];
+    }
+
+    /**
+    * Get the error messages for the defined validation rules.
+    *
+    * @return array
+    */
+    public function messages()
+    {
+        return [
+     
+        ];
+    }
+
+}
